@@ -2,10 +2,9 @@ package com.pavelyasko.aui.lab1.director.service;
 
 import com.pavelyasko.aui.lab1.director.entity.Director;
 import com.pavelyasko.aui.lab1.director.repository.DirectorRepository;
-import com.pavelyasko.aui.lab1.film.entity.Film;
-import com.pavelyasko.aui.lab1.film.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,18 +19,25 @@ public class DirectorService {
     }
 
     public Optional<Director> find(Long id) {
-        return repository.find(id);
+        return repository.findById(id);
     }
 
     public List<Director> findAll() {
         return repository.findAll();
     }
 
+    @Transactional
     public void save(Director director) {
         repository.save(director);
     }
 
+    @Transactional
     public void delete(Long id) {
-        repository.delete(repository.find(id).orElseThrow());
+        repository.deleteById(id);
+    }
+
+    @Transactional
+    public void update(Director director) {
+        repository.save(director);
     }
 }

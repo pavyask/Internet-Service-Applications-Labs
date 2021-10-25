@@ -4,6 +4,7 @@ import com.pavelyasko.aui.lab1.film.entity.Film;
 import com.pavelyasko.aui.lab1.film.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,18 +20,25 @@ public class FilmService {
     }
 
     public Optional<Film> find(Long id) {
-        return repository.find(id);
+        return repository.findById(id);
     }
 
     public List<Film> findAll() {
         return repository.findAll();
     }
 
+    @Transactional
     public void save(Film film) {
         repository.save(film);
     }
 
+    @Transactional
     public void delete(Long id) {
-        repository.delete(repository.find(id).orElseThrow());
+        repository.deleteById(id);
+    }
+
+    @Transactional
+    public void update(Film film) {
+        repository.save(film);
     }
 }
