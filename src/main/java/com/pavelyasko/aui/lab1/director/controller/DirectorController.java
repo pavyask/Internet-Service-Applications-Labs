@@ -43,7 +43,7 @@ public class DirectorController {
     public ResponseEntity<Void> deleteDirector(@PathVariable("id") long id) {
         Optional<Director> director = directorService.find(id);
         if (director.isPresent()) {
-            directorService.delete(director.get().getId());
+            directorService.delete(director.get());
             return ResponseEntity
                     .accepted()
                     .build();
