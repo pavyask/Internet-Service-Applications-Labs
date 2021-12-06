@@ -25,21 +25,15 @@ public class InitializedData {
     @PostConstruct
     private synchronized void init() {
         Director jackson = Director.builder()
-                .name("Peter")
-                .surname("Jackson")
-                .dateOfBirth(LocalDate.of(1961, 10, 31))
+                .id(1L)
                 .build();
 
         Director tarantino = Director.builder()
-                .name("Quentin")
-                .surname("Tarantino")
-                .dateOfBirth(LocalDate.of(1963, 3, 27))
+                .id(2L)
                 .build();
 
         Director nolan = Director.builder()
-                .name("Christopher")
-                .surname("Nolan")
-                .dateOfBirth(LocalDate.of(1970, 7, 30))
+                .id(3L)
                 .build();
 
         directorService.save(jackson);

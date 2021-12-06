@@ -22,10 +22,6 @@ public class DirectorService {
         return repository.findById(id);
     }
 
-    public List<Director> findAll() {
-        return repository.findAll();
-    }
-
     @Transactional
     public void save(Director director) {
         repository.save(director);
@@ -36,8 +32,4 @@ public class DirectorService {
         repository.deleteById(id);
     }
 
-    @Transactional
-    public void update(Director director) {
-        repository.save(director);
-    }
 }

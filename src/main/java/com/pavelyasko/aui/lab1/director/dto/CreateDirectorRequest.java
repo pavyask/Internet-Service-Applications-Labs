@@ -17,19 +17,11 @@ import java.util.function.Function;
 @EqualsAndHashCode
 public class CreateDirectorRequest {
 
-    private String name;
-
-    private String surname;
-
-    private LocalDate dateOfBirth;
-
-//    private List<Film> films;
+    private Long id;
 
     public static Function<CreateDirectorRequest, Director> dtoToEntityMapper() {
         return request -> Director.builder()
-                .name(request.getName())
-                .surname(request.getSurname())
-                .dateOfBirth(request.getDateOfBirth())
+                .id(request.getId())
                 .build();
     }
 }

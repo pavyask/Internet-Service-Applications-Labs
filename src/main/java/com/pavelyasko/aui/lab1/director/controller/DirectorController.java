@@ -1,9 +1,6 @@
 package com.pavelyasko.aui.lab1.director.controller;
 
 import com.pavelyasko.aui.lab1.director.dto.CreateDirectorRequest;
-import com.pavelyasko.aui.lab1.director.dto.GetDirectorResponse;
-import com.pavelyasko.aui.lab1.director.dto.GetDirectorsResponse;
-import com.pavelyasko.aui.lab1.director.dto.UpdateDirectorRequest;
 import com.pavelyasko.aui.lab1.director.entity.Director;
 import com.pavelyasko.aui.lab1.director.service.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +19,6 @@ public class DirectorController {
     @Autowired
     public DirectorController(DirectorService directorService) {
         this.directorService = directorService;
-    }
-
-    @GetMapping
-    public ResponseEntity<GetDirectorsResponse> getDirectors() {
-        return ResponseEntity.ok(GetDirectorsResponse.entityToDtoMapper().apply(directorService.findAll()));
-    }
-
-    @GetMapping("{id}")
-    public ResponseEntity<GetDirectorResponse> getDirector(@PathVariable("id") long id) {
-        return directorService.find(id)
-                .map(value -> ResponseEntity
-                        .ok(GetDirectorResponse.entityToDtoMapper().apply(value)))
-                .orElseGet(() -> ResponseEntity
-                        .notFound()
-                        .build());
     }
 
     @DeleteMapping("{id}")
@@ -63,17 +45,5 @@ public class DirectorController {
                         .pathSegment("api", "directors", "{id}")
                         .buildAndExpand(director.getId()).toUri())
                 .build();
-    }
-
-    @PutMapping("{id}")
-    public ResponseEntity<Void> updateDirector(@RequestBody UpdateDirectorRequest request, @PathVariable("id") long id) {
-        Optional<Director> director = directorService.find(id);
-        if (director.isPresent()) {
-            UpdateDirectorRequest.dtoToEntityUpdater().apply(director.get(), request);
-            directorService.update(director.get());
-            return ResponseEntity.accepted().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
     }
 }
