@@ -1,0 +1,18 @@
+GET http://localhost:8081/api/directors
+###
+
+GET http://localhost:8081/api/directors/4
+###
+
+POST http://localhost:8081/api/directors
+Content-Type: application/json
+
+{
+  "name": "George",
+  "surname": "Lucas",
+  "dateOfBirth": "1944-05-14"
+}
+###
+
+DELETE http://localhost:8081/api/directors/1
+###

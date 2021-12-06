@@ -1,0 +1,47 @@
+GET http://localhost:8082/api/films
+###
+
+GET http://localhost:8082/api/films/1
+###
+
+GET http://localhost:8082/api/films/10
+###
+
+POST http://localhost:8082/api/films
+Content-Type: application/json
+
+{
+  "title": "Star Wars: Episode I - The Phantom Menace",
+  "releaseYear": "1999"
+}
+###
+
+PUT http://localhost:8082/api/films/10
+Content-Type: application/json
+
+{
+  "title": "TEST",
+  "releaseYear": "0000"
+}
+###
+
+DELETE http://localhost:8082/api/films/10
+###
+
+GET http://localhost:8082/api/directors/4/films
+###
+
+GET http://localhost:8082/api/directors/1/films/1
+###
+
+GET http://localhost:8082/api/directors/1/films/11
+###
+
+POST http://localhost:8082/api/directors/4/films
+Content-Type: application/json
+
+{
+  "title": "The Hobbit: An Unexpected Journey",
+  "releaseYear": "2012"
+}
+###
