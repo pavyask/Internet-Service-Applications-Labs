@@ -23,8 +23,6 @@ public class GetDirectorResponse {
 
     private LocalDate dateOfBirth;
 
-//    private List<Film> films;
-
     public static Function<Director, GetDirectorResponse> entityToDtoMapper() {
         return director -> GetDirectorResponse.builder()
                 .id(director.getId())

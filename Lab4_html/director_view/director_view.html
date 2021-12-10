@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Films and Directors"/>
+        <meta name="keywords" content="AUI Lab4"/>
+        <meta name="author" content="Pavel Yasko"/>
+        <title>Films and Directors</title>
+        <link rel="stylesheet" href="../styles.css"/>
+        <link rel="stylesheet" href="director_view.css"/>
+        <script type="module" src="director_view.js" defer="defer"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <h1>Films and Directors</h1>
+            </header>
+
+            <nav class="navigation-bar">
+                <ul>
+                    <li><a href="../index.html">Main Page</a></li>
+                    <li><a href="../director_list/director_list.html">Directors</a></li>
+                </ul>
+            </nav>
+
+            <section class="main-section">
+                <article class="text--justified">
+                    <section>
+                        <a href="#" id="addFilmAnchor">Add new film</a>
+                        <h3>Director details</h3>
+                        <div class="details-grid">
+                            <label for="id">ID:</label><span id="id">id</span>
+                            <label for="name">Name:</label><span id="name">name</span>
+                            <label for="surname">Surname:</label><span id="surname">surname</span>
+                            <label for="dateOfBirth">Date of birth:</label><span id="dateOfBirth">dateOfBirth</span>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Films</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>View</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td>Title</td>
+                                    <td><a href="#">View</a></td>
+                                    <td><a href="#">Edit</a></td>
+                                    <td>
+                                        <button class="ui-button ui-control">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+
+        </div>
+    </body>
+</html>
