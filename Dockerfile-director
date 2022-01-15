@@ -1,0 +1,13 @@
+# Build stage#
+FROM maven:3.6.0-jdk-11-slim AS build
+WORKDIR /home/app/
+COPY Lab3_Director/src src
+COPY Lab3_Director/pom.xml .
+RUN mvn -f pom.xml clean package -Dmaven.test.skip
+
+# Package stage
+FROM openjdk:11-jre-slim
+WORKDIR /usr/local/lib/
+COPY --from=build /home/app/target/lab1-0.0.1-SNAPSHOT.jar Director.jar
+EXPOSE 8081
+ENTRYPOINT ["java","-jar","Director.jar"]

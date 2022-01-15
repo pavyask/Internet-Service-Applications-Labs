@@ -1,0 +1,4 @@
+# FRONT END
+FROM httpd
+COPY Lab4_html/ /usr/local/apache2/htdocs/
+EXPOSE 8083

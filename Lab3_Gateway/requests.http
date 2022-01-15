@@ -1,33 +1,7 @@
-GET http://localhost:8082/api/films
+GET http://localhost:8080/api/directors
 ###
 
-GET http://localhost:8082/api/directors/4/films
-###
-
-POST http://localhost:8082/api/directors/4/films
-Content-Type: application/json
-
-{
-  "title": "The Hobbit: An Unexpected Journey",
-  "releaseYear": "2012"
-}
-###
-
-DELETE http://localhost:8082/api/directors/4/films/10
-###
-
-
-
-
-
-
-GET http://localhost:8081/api/directors
-###
-
-GET http://localhost:8081/api/directors/4
-###
-
-POST http://localhost:8081/api/directors
+POST http://localhost:8080/api/directors
 Content-Type: application/json
 
 {
@@ -37,5 +11,33 @@ Content-Type: application/json
 }
 ###
 
-DELETE http://localhost:8081/api/directors/1
+GET http://localhost:8080/api/directors/4
+###
+
+DELETE http://localhost:8080/api/directors/1
+###
+
+
+
+
+
+
+
+
+GET http://localhost:8080/api/films
+###
+
+POST http://localhost:8080/api/directors/4/films
+Content-Type: application/json
+
+{
+  "title": "The Hobbit: An Unexpected Journey",
+  "releaseYear": "2012"
+}
+###
+
+GET http://localhost:8080/api/directors/4/films
+###
+
+DELETE http://localhost:8080/api/directors/4/films/10
 ###

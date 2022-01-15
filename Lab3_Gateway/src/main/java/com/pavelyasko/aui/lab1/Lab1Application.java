@@ -27,12 +27,12 @@ public class Lab1Application {
                         .host("localhost:8080")
                         .and()
                         .path("/api/directors/{directorID}", "/api/directors")
-                        .uri("http://localhost:8081"))
+                        .uri("http://director-app:8081"))
                 .route("films", r -> r
                         .host("localhost:8080")
                         .and()
                         .path("/api/films", "/api/films/**", "/api/directors/{directorID}/films", "/api/directors/{directorID}/films/**")
-                        .uri("http://localhost:8082"))
+                        .uri("http://film-app:8082"))
                 .build();
     }
 
