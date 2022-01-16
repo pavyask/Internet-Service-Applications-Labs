@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+
+  app:
+    container_name: app
+    image: app:latest
+    build: 
+      context: ./app
+    ports:
+        - "9300:8080"
+    depends_on:
+      - db
+    restart: on-failure
+    volumes:
+      - ./upload:/usr/local/lib/upload # file directory
+      # - ./frontend:/usr/local/apache2/htdocs # front app files EMPTY
+
+  db:
+    container_name: db
+    image: mysql:8.0.21
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: adminadmin
+      MYSQL_DATABASE: files
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: adminadmin
+    # ports:
+    #   - 33006:3306
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 9301:8080
