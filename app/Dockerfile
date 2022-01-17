@@ -16,6 +16,6 @@
 # Package stage
 FROM openjdk:11-jre-slim
 WORKDIR /usr/local/lib/
-COPY app.jar app.jar
+COPY aplsp.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
