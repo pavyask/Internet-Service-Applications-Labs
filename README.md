@@ -1,7 +1,7 @@
 # Internet-Service-Applications-Labs
 
 
-Lab1 - Lab5 - Films API (documentation here https://github.com/pavyask/Internet-Service-Applications-Labs/tree/Lab5)  
+Lab1 - Lab5 - Simple Films Web Application (documentation here https://github.com/pavyask/Internet-Service-Applications-Labs/tree/Lab5)  
 Lab6 - Files API
 
 
